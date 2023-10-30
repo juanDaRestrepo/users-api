@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  users_api:
+    image: postgres:15.1
+    container_name: users_api
+    restart: always
+    environment:
+      POSTGRES_DB: usersdb
+      POSTGRES_USER: juandev
+      POSTGRES_PASSWORD: user1234
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+    
